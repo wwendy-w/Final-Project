@@ -148,7 +148,7 @@ html {
   .footer {
     flex-shrink: 0;
     padding: 1rem;
-    background-color: rgba(255, 184, 166, 0.8);
+    background-color: rgba(129, 205, 202, 0.8);
     font-size: 1.2rem;
     font-weight: 600;
     border: 2px double;
@@ -196,6 +196,11 @@ html {
 
   img {
     width: 200px;
+  }
+
+  .chart_container {
+    height: 100%;
+    width: 100%;
   }
   
   

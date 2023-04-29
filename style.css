@@ -74,7 +74,7 @@ html {
   .imagetext {
     width: 500px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     flex:1;
     color: #8d1e1e;
@@ -109,18 +109,6 @@ html {
     Rules may combine in unexpected ways - remember that the LAST thing written in this file will have "priority"
     And will be what displays in your client
   */
-  
-  .box {
-    background-color: rgba(239, 230, 229, 0.4);
-    border: 3.5px double;
-    border-radius: 2px;
-  
-    width: 173px;
-    height: 173px;
-    padding: 10px;
-    margin: 10px;
-    text-overflow: 0;
-  }
   
   .left_section {
     background-color: rgba(228, 154, 167, 0.7);

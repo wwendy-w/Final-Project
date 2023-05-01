@@ -15,7 +15,7 @@ html {
   }
   
   body {
-    padding: 50px;
+    padding: 50;
     font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
     font-weight: 400;
     line-height: 1.5;
@@ -100,16 +100,6 @@ html {
     box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
   }
   
-  
-  /*
-    Rules can be combined on a block to apply the 'cascade' in order
-    So you can use two classnames in a single class attribute
-    like: <div class="box section">
-  
-    Rules may combine in unexpected ways - remember that the LAST thing written in this file will have "priority"
-    And will be what displays in your client
-  */
-  
   .left_section {
     background-color: rgba(228, 154, 167, 0.7);
     flex: 0 1 auto;
@@ -127,12 +117,6 @@ html {
     flex-direction: column;
   }
   
-  /*
-    This block is actually dependent on the "container" block having a flex set on it
-    and the "wrapper" block displaying as a flex column with a "vertical height" (vh) of 100.
-    That serves to cram the footer to the bottom of the page.
-  */
-  
   .footer {
     flex-shrink: 0;
     padding: 1rem;
@@ -147,11 +131,6 @@ html {
     text-decoration: underline;
   }
   
-  /*
-    This is an example of a 'pseudoclass'
-    In this instance, it says what to do if a mouse hovers over a link
-    This is pretty desktop-specific, since there's no hover function on touchscreens
-  */
   .footer a:hover {
     /* Hue, saturation, luminosity, alpha */
     background-color: rgb(101, 189, 211);
@@ -189,6 +168,10 @@ html {
   .chart_container {
     height: 100%;
     width: 100%;
+  }
+
+  .dropdown {
+    font-size: 14px;
   }
   
   

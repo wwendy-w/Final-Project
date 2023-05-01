@@ -25,7 +25,7 @@
         Open Data shares data on the types of inspections given across numerous 
         establishments as well as its location, inspection results, and more.
       </p>
-      <br>
+
       <header class="header"><h2>Types of Regulations</h2></header>
       <br>
       <div class="container">
@@ -59,11 +59,17 @@
       </div>
       <br><br>
       <header class="header"><h2>Data Visualizations</h2></header>
-      <br><br>
+      <div class="dropdown">Choose an Inspection Type: </div>
+        <select name="inpection_types" id="insection_types">
+          <option value="proper_hand_washing">Proper Hand Washing</option>
+          <option value="rodent_and_insects">Rodent and Insects</option>
+          <option value="ill_workers_restricted">Ill Workers Restricted</option>
+      </select>
+      </div>
+      <br><br><br>
       <div class="chart_container">
         <canvas id="myChart"></canvas>
       </div>
-
     </div>
     <br>
     <footer class="footer">

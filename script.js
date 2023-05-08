@@ -84,6 +84,9 @@ async function getData(){
     const url = "https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json";
     const data = await fetch(url);
     const json = await data.json();
+
+    localStorage.setItem('storedData', JSON.stringify(data));
+
     return json;
 }
   
@@ -91,6 +94,15 @@ async function mainEvent() {
     chartTarget = document.querySelector("#myChart");
     chartData = await getData();
     chart = initChart(chartTarget, shapeDataForHandWashing(chartData));
+    const refreshButton = document.querySelector("#refresh_button");
+
+    refreshButton.addEventListener("click", (event) => {
+    const recallList = localStorage.getItem('storedData');
+    const storedList = JSON.parse()
+
+    });
+
 }
+
   document.addEventListener("DOMContentLoaded", async () => mainEvent());
   document.querySelector("#inspection_types").addEventListener("change", chooseChart);

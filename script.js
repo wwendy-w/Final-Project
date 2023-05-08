@@ -1,54 +1,80 @@
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
-  
-  
-function filterList(list, query) {
-return list.filter((item) => {
-    const lowerCaseName = item.name.toLowerCase();
-    const lowerCaseQuery = query.toLowerCase();
-    return lowerCaseName.includes(lowerCaseQuery);
-});
-}
-  
+let chartTarget;
+let chartData;
+let chart;
 
 function initChart(chart, object) {
-const labels = Object.keys(object);
+    const labels = Object.keys(object);
+    const info = Object.keys(object).map((item) => object[item].length);
 
-const info = Object.keys(object).map((item) => object[item].length);
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Count ',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: info
+        }]
+    };
 
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    suggestedMin: 0,
+                    suggestedMax: 1000
+                }
+            }
+        }
+    };
 
-const data = {
-    labels: labels,
-    datasets: [{
-        label: 'Proper Hand Washing ',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: info
-    }]
-};
-
-const config = {
-    type: 'bar',
-    data: data,
-    options: {}
-};
-
-return new Chart(
-    chart,
-    config
-);
-
+    return new Chart(
+        chart,
+        config
+    );
 }
 
-function shapeDataForLineChart(array){
+function changeChart(chart, object) {
+    const labels = Object.keys(object);
+    const info = Object.keys(object).map((item) => object[item].length);
+    console.log(chart)
+    chart.data.labels = labels;
+    chart.data.datasets.forEach((set) => { 
+        set.data = info; 
+        return set;
+    })
+    chart.update();
+} 
+    
+function chooseChart(){
+    let category = document.querySelector("#inspection_types").value;
+    let shapedData;
+    if (category == "proper_hand_washing"){
+        shapedData = shapeDataForHandWashing(chartData)
+    } else if (category == "rodent_and_insects") {
+        shapedData = shapeDataForRodentsAndInsect(chartData)
+    }
+    changeChart(chart, shapedData)
+}
+
+function shapeDataForHandWashing(array){
     return array.reduce((collection, item) => {
         if(!collection[item.proper_hand_washing]) {
             collection[item.proper_hand_washing] = [item]
         } else {
             collection[item.proper_hand_washing].push(item);
+        }
+        return collection;
+    }, {});
+}
+
+function shapeDataForRodentsAndInsect(array){
+    return array.reduce((collection, item) => {
+        if(!collection[item.rodent_and_insects]) {
+            collection[item.rodent_and_insects] = [item]
+        } else {
+            collection[item.rodent_and_insects].push(item);
         }
         return collection;
     }, {});
@@ -62,12 +88,9 @@ async function getData(){
 }
   
 async function mainEvent() {
-    const chartTarget = document.querySelector("#myChart");
-    
-    const chartData = await getData();
-
-    const shapedData = shapeDataForLineChart(chartData);
-    console.log(shapedData);
-    const myChart = initChart(chartTarget, shapedData);
+    chartTarget = document.querySelector("#myChart");
+    chartData = await getData();
+    chart = initChart(chartTarget, shapeDataForHandWashing(chartData));
 }
   document.addEventListener("DOMContentLoaded", async () => mainEvent());
+  document.querySelector("#inspection_types").addEventListener("change", chooseChart);

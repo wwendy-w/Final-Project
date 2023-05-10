@@ -10,10 +10,7 @@
 
   </head>
   <body>
-      <a href="https://github.com/wwendy-w/INST377-Final-Project">ABOUT</a>
-
       <header class="header"><h1>To Eat or Not to Eat</h1></header>
-
       <p>
         Food inspections are evaluations conducted at food establishments to 
         manage the safety and quality of the environment and the food being 
@@ -25,9 +22,9 @@
         Open Data shares data on the types of inspections given across numerous 
         establishments as well as its location, inspection results, and more.
       </p>
-
-      <header class="header"><h2>Types of Regulations</h2></header>
-      <br>
+      <header class="header"><h2>Types of Regulations</h2>
+      </header>
+      <div class="imagebox">
       <div class="container">
         <div class="imagetext">
           <img src="images/cleaniness.png" />
@@ -56,23 +53,31 @@
           <img src="images/sanitation.png" />
           Sanitation
         </div>
-      </div>
+      </div></div>
+      <br>
+      <header class="header"><h2>Data Visualization</h2></header>
+      <div class="visualbox">
+      Choose a food inspection type that you would like to check. The bar graph will
+      display the number of inspections that are "In Compliance" and "Out of Compliance."
       <br><br>
-      <header class="header"><h2>Data Visualizations</h2></header>
-      <button type="button" id="refresh_button">Refresh</button>
-      <div class="dropdown">Choose an Inspection Type: </div>
+      <div class="dropdown">Select Inspection Type: </div>
         <select id="inspection_types">
           <option value="proper_hand_washing">Proper Hand Washing</option>
           <option value="rodent_and_insects">Rodent and Insects</option>
+          <option value="ill_workers_restricted">Ill Workers Restricted</option>
+          <option value="food_protected_from">Food Protected From Contamination</option>
+          <option value="proper_sewage_disposal">Proper Sewage Disposal</option>
+          <option value="cooking_time_and_temperature">Cooking Time and Temperature</option>
         </select>
+      <br>
       </div>
-      <br><br><br>
+      <br><br>
       <div class="chart_container">
         <canvas id="myChart"></canvas>
       </div>
     </div>
-    <br>
     <footer class="footer">
+      <a href="about.html">About</a> |
       <a href="https://github.com/wwendy-w/INST377-Final-Project">wwendy-w</a>
     </footer>
     <script src="script.js"></script>

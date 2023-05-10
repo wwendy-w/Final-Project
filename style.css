@@ -24,7 +24,6 @@ html {
   
   
   a {
-    display: inline-block;
     text-decoration: none;
   }
 
@@ -37,14 +36,6 @@ html {
     padding:0;
     padding-bottom:1.5rem;
   }
-  
-  /*.wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    flex: 1;
-  }*/
   
   .container {
     margin: 0 20px;
@@ -77,53 +68,51 @@ html {
     flex-direction: column;
     align-items: center;
     flex:1;
-    color: #8d1e1e;
+    color: #8d1e38;
+    font-size: 16px;
+  }
+
+  .imagebox {
+    padding: 2.5rem;
+    margin:0;
+    background-color: rgba(239, 220, 207, 0.8);
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: 3px double;
+    color: #79183c;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+  }
+
+  .visualbox {
+    padding: 2.5rem;
+    margin:0;
+    background-color: rgba(235, 220, 194, 0.8);
+    font-size: 1rem;
+    font-weight: 600;
+    border: 3px double;
+    color: #871c6e;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
   }
   
   .header h1 {
     display: block;
     border: 3px double;
-    /* this will push other blocks out of the way */
-  
-    /* colors */
-    background-color: #f1d6a8;
+    background-color: #f5ddb4;
     color: #aa3c71;
-  
-    /* shapes */
-    border-radius: 6px;
     font-size: 1.5rem;
     padding: 1.25rem;
-    margin:0; /* removing the margin on h1 tags means the header pins to the top if we move */
-  
-  
-    /* box-shadows are fancy */
+    margin:0; 
     box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
-  }
-  
-  .left_section {
-    background-color: rgba(228, 154, 167, 0.7);
-    flex: 0 1 auto;
-    margin: 1rem;
-    padding: 1.5rem;
-  }
-  
-  .right_section {
-    background-color: rgba(152, 186, 195, 0.7);
-    flex: 1 2 auto;
-    margin: 1rem;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
   }
   
   .footer {
     flex-shrink: 0;
     padding: 1rem;
-    background-color: rgba(129, 205, 202, 0.8);
+    background-color: rgba(236, 206, 179, 0.8);
     font-size: 1.2rem;
     font-weight: 600;
-    border: 2px double;
+    border: 3px double;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
   }
   
   .footer a {
@@ -132,9 +121,7 @@ html {
   }
   
   .footer a:hover {
-    /* Hue, saturation, luminosity, alpha */
-    background-color: rgb(101, 189, 211);
-    /* red, green, blue, alpha */
+    background-color: rgb(127, 191, 193);
     color: rgb(31, 24, 57);
     text-decoration: none;
   }
@@ -145,8 +132,6 @@ html {
     margin-bottom: 5px;
   }
   
-  
-  /* Deploy this with images as direct "children" and the images should pop into shape */
   .grid {
     display: flex;
     justify-content: space-evenly;
@@ -175,8 +160,6 @@ html {
   }
   
   
-  /* How To Write A Media Query For Small Screens */
-  
   @media only screen and (max-width: 736px){
       /* Rules in here will only apply when a screen is the correct size */
       /* check it out by using your developer tools to shrink your screen-size */
@@ -193,13 +176,5 @@ html {
         width: fill-available;
         align-items: flex-start;
       }
-  
-      .left_section {
-        flex: 1 1 auto;
-      }
-      
-      .right_section {
-        flex: 1 1 auto;
-        justify-content: flex-start;
-      }
+
   }
